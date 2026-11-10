@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Video / Photo - KAORU ART</title>
+
+	<!-- 保留原有的主要樣式與自訂修正檔 -->
+	<link id="wsite-base-style" rel="stylesheet" type="text/css" href="weebly-base.css" />
+	<link rel="stylesheet" type="text/css" href="files/main_style.css?1789437945" title="wsite-theme-css" />
+	<link rel="stylesheet" href="custom-fixes.css" />
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Cookie&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
+		rel="stylesheet">
+
+	<!-- 圖片瀏覽效果 (GLightbox) -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+	<style>
+		/* 基本字型與標題設定 */
+		#wsite-content div.paragraph,
+		#wsite-content p {
+			font-family: "Montserrat", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+			font-weight: 400 !important;
+			color: #9b9b9b !important;
+		}
+
+		#wsite-content h2 {
+			font-family: "Montserrat", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+			text-transform: uppercase !important;
+			color: #333 !important;
+		}
+
+		#wsite-title {
+			font-family: "Montserrat", sans-serif !important;
+			text-transform: uppercase !important;
+		}
+
+		.wsite-headline,
+		.wsite-header-section .wsite-content-title {
+			font-family: "Montserrat", sans-serif !important;
+			font-weight: 700 !important;
+			letter-spacing: 5px !important;
+		}
+
+		@media screen and (min-width: 767px) {
+			#wsite-content h2 {
+				font-size: 24px !important;
+			}
+
+			#wsite-title {
+				font-size: 26px !important;
+			}
+		}
+
+		/* 關鍵修正：強制讓 Logo 區塊提高圖層，確保點擊絕對不會被遮擋 */
+		.nav-wrap {
+			position: relative;
+			z-index: 100;
+		}
+
+		#logo {
+			position: relative;
+			z-index: 101;
+		}
+
+		#logo a {
+			position: relative;
+			display: inline-block;
+			z-index: 102;
+			cursor: pointer;
+		}
+
+		.section-heading {
+			text-align: left;
+			margin: 56px 0 20px !important;
+			padding-bottom: 8px;
+			border-bottom: 1px solid #eaeaea;
+		}
+
+		.section-heading:first-of-type {
+			margin-top: 10px !important;
+		}
+
+		/* 現代化 CSS Grid 圖片畫廊樣式 */
+		.kaoru-gallery {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 12px;
+			margin-bottom: 24px;
+		}
+
+		.kaoru-gallery.cols-3 {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.kaoru-gallery a {
+			display: block;
+			position: relative;
+			width: 100%;
+			aspect-ratio: 4 / 3;
+			overflow: hidden;
+			border: 1px solid #e0e0e0;
+			padding: 2px;
+			background: #fff;
+			box-sizing: border-box;
+		}
+
+		.kaoru-gallery img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+			transition: transform 0.3s ease;
+		}
+
+		.kaoru-gallery a:hover img {
+			transform: scale(1.05);
+		}
+
+		/* 影片專用 9:16 直式網格樣式 */
+		.video-gallery-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 20px;
+			padding: 10px 0;
+			margin: 0 auto;
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		.video-item {
+			position: relative;
+			width: 100%;
+			aspect-ratio: 9 / 16;
+			background-color: #000;
+			border-radius: 8px;
+			overflow: hidden;
+			border: 1px solid #eaeaea;
+		}
+
+		.video-item iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+
+		/* RWD 響應式斷點 */
+		@media screen and (max-width: 992px) {
+
+			.kaoru-gallery,
+			.kaoru-gallery.cols-3,
+			.video-gallery-grid {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 15px;
+			}
+		}
+
+		@media screen and (max-width: 600px) {
+
+			.kaoru-gallery,
+			.kaoru-gallery.cols-3,
+			.video-gallery-grid {
+				grid-template-columns: 1fr;
+				gap: 15px;
+			}
+		}
+	</style>
+</head>
+
+<body class="header-page wsite-theme-light wsite-page-photo">
+	<div class="wrapper">
+		<div class="header-wrap">
+			<div class="nav-wrap">
+				<div id="logo">
+					<span class="wsite-logo">
+						<a href="index.html">
+							<span id="wsite-title">KAORU ART</span>
+						</a>
+					</span>
+				</div>
+				<a class="hamburger" aria-label="Menu" href="#"><span></span></a>
+				<div class="menu">
+					<div class="container">
+						<div class="search"></div>
+						<ul class="wsite-menu-default">
+							<li class="wsite-menu-item-wrap"><a href="index.html" class="wsite-menu-item">HOME</a></li>
+							<li class="wsite-menu-item-wrap"><a href="design.html" class="wsite-menu-item">DESIGN</a>
+							</li>
+							<li class="wsite-menu-item-wrap"><a href="illustration.html"
+									class="wsite-menu-item">ILLUSTRATION</a></li>
+							<li id="active" class="wsite-menu-item-wrap"><a href="video_photo.html"
+									class="wsite-menu-item">VIDEO / PHOTO</a></li>
+							<li class="wsite-menu-item-wrap"><a href="web_ui.html" class="wsite-menu-item">WEB / UI</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="banner-wrap">
+				<div class="wsite-elements wsite-not-footer wsite-header-elements">
+					<div class="wsite-section-wrap">
+						<div class="wsite-section wsite-header-section wsite-section-bg-image"
+							style="height: auto; background-image: url('https://cdn2.editmysite.com/images/editor/theme-background/stock/Cameras.jpg'); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; background-color: transparent;">
+							<div class="wsite-section-content">
+								<div class="container">
+									<div class="banner">
+										<div class="wsite-section-elements">
+											<h2 class="wsite-content-title" style="text-align:center; font-size: 36px; letter-spacing: 5px;">VIDEO / PHOTO</h2>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.header-wrap-->
+
+		<div id="main-wrap">
+			<div id="wsite-content" class="wsite-elements wsite-not-footer">
+				<div class="wsite-section-wrap">
+					<div class="wsite-section wsite-body-section wsite-background-8 wsite-custom-background">
+						<div class="wsite-section-content">
+							<div class="container">
+								<div class="wsite-section-elements">
+
+									<h2 class="wsite-content-title section-heading">VIDEO</h2>
+									<div class="video-gallery-grid">
+										<div class="video-item"><iframe src="https://www.youtube.com/embed/2YVHKXu2teA"
+												title="Video 1" allowfullscreen loading="lazy"></iframe></div>
+										<div class="video-item"><iframe src="https://www.youtube.com/embed/qRt2ahvR54A"
+												title="Video 2" allowfullscreen loading="lazy"></iframe></div>
+										<div class="video-item"><iframe src="https://www.youtube.com/embed/TeF2iyFSiW4"
+												title="Video 3" allowfullscreen loading="lazy"></iframe></div>
+										<div class="video-item"><iframe src="https://www.youtube.com/embed/877g6klHjc8"
+												title="Video 4" allowfullscreen loading="lazy"></iframe></div>
+										<div class="video-item"><iframe src="https://www.youtube.com/embed/Tp5-GoVFANo"
+												title="Video 5" allowfullscreen loading="lazy"></iframe></div>
+										<div class="video-item"><iframe src="https://www.youtube.com/embed/83VhNzglN30"
+												title="Video 6" allowfullscreen loading="lazy"></iframe></div>
+										<div class="video-item"><iframe src="https://www.youtube.com/embed/eICydoxFRJ8"
+												title="Video 7" allowfullscreen loading="lazy"></iframe></div>
+										<div class="video-item"><iframe src="https://www.youtube.com/embed/H5VwB1U_TVA"
+												title="Video 8" allowfullscreen loading="lazy"></iframe></div>
+										<div class="video-item"><iframe src="https://www.youtube.com/embed/xrqg_Knkq4U"
+												title="Video 9" allowfullscreen loading="lazy"></iframe></div>
+										<div class="video-item"><iframe src="https://www.youtube.com/embed/zCITOq5FDAU"
+												title="Video 10" allowfullscreen loading="lazy"></iframe></div>
+										<div class="video-item"><iframe src="https://www.youtube.com/embed/LfaIqgpFx1A"
+												title="Video 11" allowfullscreen loading="lazy"></iframe></div>
+									</div>
+
+									<h2 class="wsite-content-title section-heading">商業攝影</h2>
+									<div class="kaoru-gallery">
+										<a href="uploads/1/1/9/0/11905794/20221004iscan4_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20221004iscan4.jpg" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20230307iscan4top-logo_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20230307iscan4top-logo.jpg" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/iscane-all-001_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/iscane-all-001.jpg" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-5786_orig.png"><img
+												src="uploads/1/1/9/0/11905794/img-5786.png" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-5797_orig.png"><img
+												src="uploads/1/1/9/0/11905794/img-5797.png" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-5894_orig.png"><img
+												src="uploads/1/1/9/0/11905794/img-5894.png" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-5901-huang_orig.png"><img
+												src="uploads/1/1/9/0/11905794/img-5901-huang.png" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-6156_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-6156.jpg" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-6163_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-6163.jpg" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20210303ps-m2-002_orig.png"><img
+												src="uploads/1/1/9/0/11905794/20210303ps-m2-002.png" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20230704ca15two-001_orig.png"><img
+												src="uploads/1/1/9/0/11905794/20230704ca15two-001.png" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20230927iscan4s_orig.png"><img
+												src="uploads/1/1/9/0/11905794/20230927iscan4s.png" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20240424iscan-vci_orig.png"><img
+												src="uploads/1/1/9/0/11905794/20240424iscan-vci.png" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20240717vedis4max02_orig.png"><img
+												src="uploads/1/1/9/0/11905794/20240717vedis4max02.png" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20240808iscan5_orig.png"><img
+												src="uploads/1/1/9/0/11905794/20240808iscan5.png" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20240903-vci_orig.png"><img
+												src="uploads/1/1/9/0/11905794/20240903-vci.png" alt="商業攝影"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20240903-vci-2_orig.png"><img
+												src="uploads/1/1/9/0/11905794/20240903-vci-2.png" alt="商業攝影"
+												loading="lazy"></a>
+									</div>
+
+									<h2 class="wsite-content-title section-heading">Food photos</h2>
+									<div class="kaoru-gallery cols-3">
+										<a href="uploads/1/1/9/0/11905794/img-0848_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-0848.jpg" alt="Food photo"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-0854_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-0854.jpg" alt="Food photo"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-0856_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-0856.jpg" alt="Food photo"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-0862_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-0862.jpg" alt="Food photo"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-0865_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-0865.jpg" alt="Food photo"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-0872_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-0872.jpg" alt="Food photo"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-0873_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-0873.jpg" alt="Food photo"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-0881_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-0881.jpg" alt="Food photo"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-0888_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-0888.jpg" alt="Food photo"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-0895_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-0895.jpg" alt="Food photo"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-0896_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-0896.jpg" alt="Food photo"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/img-0904_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/img-0904.jpg" alt="Food photo"
+												loading="lazy"></a>
+									</div>
+
+									<h2 class="wsite-content-title section-heading">+Project 365</h2>
+									<div class="kaoru-gallery">
+										<a href="uploads/1/1/9/0/11905794/4072013_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4072013_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1215504_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/1215504_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5969998_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5969998_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2383168_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2383168_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2797445_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2797445_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/3547233_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/3547233_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5067303_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5067303_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1540618_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/1540618_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8681031_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8681031_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4425555_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4425555_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7443502_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7443502_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9994626_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9994626_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/16818_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/16818_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1128582_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/1128582_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5543456_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5543456_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5746904_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5746904_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/3700022_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/3700022_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/642816_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/642816_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8819122_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8819122_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/6136506_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6136506_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/6471574_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6471574_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2421575_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2421575_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9059076_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9059076_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9046588_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9046588_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7838093_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7838093_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4288777_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4288777_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8249787_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8249787_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9812008_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9812008_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9234973_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9234973_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/3855256_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/3855256_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5859659_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5859659_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/3040260_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/3040260_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8513217_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8513217_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7084178_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7084178_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7165013_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7165013_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/6624359_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6624359_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/3735192_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/3735192_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7758336_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7758336_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/832397_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/832397_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/6427943_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6427943_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1871350_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/1871350_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/476516_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/476516_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7735210_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7735210_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9140766_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9140766_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9206313_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9206313_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5055374_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5055374_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1212165_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/1212165_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9782738_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9782738_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4022127_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4022127_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4254200_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4254200_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8438001_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8438001_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7700564_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7700564_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5642472_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5642472_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5055143_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5055143_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9065813_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9065813_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/6645620_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6645620_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7407168_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7407168_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/6557383_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6557383_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7674563_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7674563_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/179304_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/179304_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9955414_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9955414_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7687530_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7687530_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/459435_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/459435_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/559124_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/559124_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4142938_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4142938_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9028971_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9028971_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7214238_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7214238_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5676509_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5676509_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4605191_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4605191_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7424716_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7424716_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8726749_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8726749_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2537287_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2537287_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9975461_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9975461_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8028012_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8028012_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8933684_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8933684_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7042292_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7042292_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/6093513_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6093513_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2025199_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2025199_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/927499_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/927499_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9811256_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9811256_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/3251729_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/3251729_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2719608_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2719608_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2029115_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2029115_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/3874959_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/3874959_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8412683_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8412683_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/3353105_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/3353105_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9537316_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9537316_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5313406_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5313406_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/3427776_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/3427776_1.jpg" alt="Project 365"
+												loading="lazy"></a>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="sticky-footer-push"></div>
+	</div><!--/.wrapper-->
+
+	<!-- 手機版導覽列 -->
+	<div class="navmobile-wrapper">
+		<div id="navmobile" class="nav">
+			<ul class="wsite-menu-default">
+				<li class="wsite-menu-item-wrap"><a href="index.html" class="wsite-menu-item">HOME</a></li>
+				<li class="wsite-menu-item-wrap"><a href="design.html" class="wsite-menu-item">DESIGN</a></li>
+				<li class="wsite-menu-item-wrap"><a href="illustration.html" class="wsite-menu-item">ILLUSTRATION</a>
+				</li>
+				<li id="active" class="wsite-menu-item-wrap"><a href="video_photo.html" class="wsite-menu-item">VIDEO /
+						PHOTO</a></li>
+				<li class="wsite-menu-item-wrap"><a href="web_ui.html" class="wsite-menu-item">WEB / UI</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 引入 GLightbox 核心檔案 -->
+	<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+	<!-- 啟用燈箱與手機選單 -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var imageLinks = document.querySelectorAll('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]');
+			imageLinks.forEach(function (link) {
+				link.classList.add('glightbox');
+			});
+			const lightbox = GLightbox({
+				selector: '.glightbox',
+				touchNavigation: true,
+				loop: true
+			});
+
+			var menuBtn = document.querySelector('a[aria-label="Menu"]');
+			if (menuBtn) {
+				var menuWrapper = menuBtn.nextElementSibling;
+				if (menuWrapper) {
+					menuWrapper.classList.add('custom-mobile-menu');
+					menuBtn.addEventListener('click', function (event) {
+						event.preventDefault();
+						menuWrapper.classList.toggle('is-open');
+					});
+				}
+			}
+		});
+	</script>
+
+	<div class="custom-footer">
+		© 2026 KAORU ART. All Rights Reserved.
+	</div>
+
+	<!-- 浮動式快捷導航選單 -->
+	<div class="floating-menu-container" id="floatMenu">
+		<button id="mainFloatBtn" title="快速導航選單">☰</button>
+		<ul class="float-options">
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="design.html">DESIGN</a></li>
+			<li><a href="illustration.html">ILLUSTRATION</a></li>
+			<li><a href="video_photo.html">VIDEO / PHOTO</a></li>
+			<li><a href="web_ui.html">WEB / UI</a></li>
+		</ul>
+	</div>
+
+	<script>
+		const floatMenu = document.getElementById('floatMenu');
+		const mainFloatBtn = document.getElementById('mainFloatBtn');
+
+		// 點擊主按鈕時切換展開/收合
+		mainFloatBtn.addEventListener('click', function (e) {
+			e.stopPropagation();
+			floatMenu.classList.toggle('active');
+		});
+
+		// 點擊畫面其他地方時自動收合選單
+		document.addEventListener('click', function () {
+			floatMenu.classList.remove('active');
+		});
+	</script>
+</body>
+
+</html>

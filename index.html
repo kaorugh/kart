@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>KAORU ART - Home</title>
+
+	<!-- 保留原有的主要樣式與自訂修正檔 -->
+	<link id="wsite-base-style" rel="stylesheet" type="text/css" href="weebly-base.css" />
+	<link rel="stylesheet" type="text/css" href="files/main_style.css?1789437945" title="wsite-theme-css" />
+	<link rel="stylesheet" href="custom-fixes.css" />
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Cookie&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
+		rel="stylesheet">
+
+	<!-- 圖片瀏覽效果 (GLightbox) -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+	<style>
+		/* 基本字型與主體設定 */
+		#wsite-content div.paragraph,
+		#wsite-content p {
+			font-family: "Montserrat", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+			font-weight: 400 !important;
+			color: #9b9b9b !important;
+		}
+
+		#wsite-content h2 {
+			font-family: "Montserrat", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+			text-transform: uppercase !important;
+			color: #333 !important;
+		}
+
+		#wsite-title {
+			font-family: "Montserrat", sans-serif !important;
+			text-transform: uppercase !important;
+		}
+
+		.wsite-headline,
+		.wsite-header-section .wsite-content-title {
+			font-family: "Montserrat", sans-serif !important;
+			font-weight: 700 !important;
+			letter-spacing: 5px !important;
+		}
+
+		@media screen and (min-width: 767px) {
+			#wsite-content h2 {
+				font-size: 24px !important;
+			}
+
+			#wsite-title {
+				font-size: 26px !important;
+			}
+		}
+
+		/* 關鍵修正：強制讓 Logo 區塊提高圖層，確保點擊絕對不會被遮擋 */
+		.nav-wrap {
+			position: relative;
+			z-index: 100;
+		}
+
+		#logo {
+			position: relative;
+			z-index: 101;
+		}
+
+		#logo a {
+			position: relative;
+			display: inline-block;
+			z-index: 102;
+			cursor: pointer;
+		}
+
+		/* 首頁作品展示區網格樣式 */
+		.home-gallery {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 12px;
+			max-width: 1000px;
+			margin: 0 auto;
+			padding: 10px 0;
+			width: 100%;
+		}
+
+		.home-card {
+			width: calc(33.33% - 16px);
+			min-width: 280px;
+			background: #fff;
+			border: 1px solid #eaeaea;
+			border-radius: 6px;
+			overflow: hidden;
+			text-align: center;
+			padding: 8px;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.home-card:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+		}
+
+		.home-card img {
+			width: 100%;
+			height: 200px;
+			object-fit: cover;
+			border-radius: 4px;
+			display: block;
+			margin-bottom: 12px;
+		}
+
+		.home-card-title {
+			font-size: 0.95rem;
+			font-weight: 600;
+			color: #333;
+			letter-spacing: 0.5px;
+		}
+
+		.home-card-title a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.home-card-title a:hover {
+			color: #000;
+		}
+
+		/* RWD 響應式斷點 */
+		@media screen and (max-width: 768px) {
+			.home-gallery {
+				gap: 16px;
+				padding: 10px;
+			}
+
+			.home-card {
+				width: 100%;
+				/* 手機版時，強制每張卡片自己佔滿整排 */
+			}
+		}
+	</style>
+</head>
+
+<body class="header-page wsite-theme-light wsite-page-index">
+	<div class="wrapper">
+		<div class="header-wrap">
+			<div class="nav-wrap">
+				<div id="logo">
+					<span class="wsite-logo">
+						<a href="index.html">
+							<span id="wsite-title">KAORU ART</span>
+						</a>
+					</span>
+				</div>
+				<a class="hamburger" aria-label="Menu" href="#"><span></span></a>
+				<div class="menu">
+					<div class="container">
+						<div class="search"></div>
+						<ul class="wsite-menu-default">
+							<li class="wsite-menu-item-wrap"><a href="index.html" class="wsite-menu-item">HOME</a></li>
+							<li class="wsite-menu-item-wrap"><a href="design.html" class="wsite-menu-item">DESIGN</a>
+							</li>
+							<li class="wsite-menu-item-wrap"><a href="illustration.html"
+									class="wsite-menu-item">ILLUSTRATION</a></li>
+							<li class="wsite-menu-item-wrap"><a href="video_photo.html" class="wsite-menu-item">VIDEO /
+									PHOTO</a></li>
+							<li class="wsite-menu-item-wrap"><a href="web_ui.html" class="wsite-menu-item">WEB / UI</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="banner-wrap">
+				<div class="wsite-elements wsite-not-footer wsite-header-elements">
+					<div class="wsite-section-wrap">
+						<div class="wsite-section wsite-header-section wsite-section-bg-image wsite-section-effect-reveal"
+							style="height: 736px; background-image: url('uploads/1492006793.jpg'); background-repeat: no-repeat; background-position: 50.00% 81.26%; background-size: cover; background-color: transparent;">
+							<div class="wsite-section-content">
+								<div class="container">
+									<div class="banner">
+										<div class="wsite-section-elements"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.header-wrap-->
+
+		<div id="main-wrap">
+			<div id="wsite-content" class="wsite-elements wsite-not-footer">
+				<div class="wsite-section-wrap">
+					<div class="wsite-section wsite-body-section wsite-background-11 wsite-custom-background">
+						<div class="wsite-section-content">
+							<div class="container">
+								<div class="wsite-section-elements">
+
+									<h2 class="wsite-content-title" style="text-align:center; margin-bottom: 10px;">
+										<a href="https://kaoruart.weebly.com/website.html" target="_blank"
+											style="text-decoration: none; color: inherit;">SELECTED WORKS</a>
+									</h2>
+
+									<div class="home-gallery">
+										<div class="home-card">
+											<a href="https://kaorurd.byethost24.com/th/" target="_blank">
+												<img src="uploads/1/1/9/0/11905794/hp002_orig.jpg" alt="TOY HUNTER 購物網站"
+													loading="lazy">
+											</a>
+											<div class="home-card-title">
+												<a href="https://kaorurd.byethost24.com/th/" target="_blank">TOY HUNTER
+													購物網站</a>
+											</div>
+										</div>
+
+										<div class="home-card">
+											<a href="https://kaorurd.byethost24.com/web03-work0703/index.html"
+												target="_blank">
+												<img src="uploads/1/1/9/0/11905794/hp001_orig.jpg" alt="GO SKATEBOARD"
+													loading="lazy">
+											</a>
+											<div class="home-card-title">
+												<a href="https://kaorurd.byethost24.com/web03-work0703/index.html"
+													target="_blank">GO SKATEBOARD</a>
+											</div>
+										</div>
+
+										<!-- <div class="home-card">
+											<a href="https://kaorurd.byethost24.com/sc/" target="_blank">
+												<img src="uploads/1/1/9/0/11905794/hp004_orig.jpg" alt="砂時計鐘錶有限公司"
+													loading="lazy">
+											</a>
+											<div class="home-card-title">
+												<a href="https://kaorurd.byethost24.com/sc/"
+													target="_blank">砂時計鐘錶有限公司</a>
+											</div>
+										</div> -->
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="sticky-footer-push"></div>
+	</div><!--/.wrapper-->
+
+	<!-- 手機版導覽列 -->
+	<div class="navmobile-wrapper">
+		<div id="navmobile" class="nav">
+			<ul class="wsite-menu-default">
+				<li class="wsite-menu-item-wrap"><a href="index.html" class="wsite-menu-item">HOME</a></li>
+				<li class="wsite-menu-item-wrap"><a href="design.html" class="wsite-menu-item">DESIGN</a></li>
+				<li class="wsite-menu-item-wrap"><a href="illustration.html" class="wsite-menu-item">ILLUSTRATION</a>
+				</li>
+				<li class="wsite-menu-item-wrap"><a href="video_photo.html" class="wsite-menu-item">VIDEO / PHOTO</a>
+				</li>
+				<li class="wsite-menu-item-wrap"><a href="web_ui.html" class="wsite-menu-item">WEB / UI</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 引入 GLightbox 核心檔案 -->
+	<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+	<!-- 啟用燈箱與手機選單 -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var imageLinks = document.querySelectorAll('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]');
+			imageLinks.forEach(function (link) {
+				link.classList.add('glightbox');
+			});
+			const lightbox = GLightbox({
+				selector: '.glightbox',
+				touchNavigation: true,
+				loop: true
+			});
+
+			var menuBtn = document.querySelector('a[aria-label="Menu"]');
+			if (menuBtn) {
+				var menuWrapper = menuBtn.nextElementSibling;
+				if (menuWrapper) {
+					menuWrapper.classList.add('custom-mobile-menu');
+					menuBtn.addEventListener('click', function (event) {
+						event.preventDefault();
+						menuWrapper.classList.toggle('is-open');
+					});
+				}
+			}
+		});
+	</script>
+
+	<div class="custom-footer">
+		© 2026 KAORU ART. All Rights Reserved.
+	</div>
+
+	<!-- 浮動式快捷導航選單 -->
+	<div class="floating-menu-container" id="floatMenu">
+		<button id="mainFloatBtn" title="快速導航選單">☰</button>
+		<ul class="float-options">
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="design.html">DESIGN</a></li>
+			<li><a href="illustration.html">ILLUSTRATION</a></li>
+			<li><a href="video_photo.html">VIDEO / PHOTO</a></li>
+			<li><a href="web_ui.html">WEB / UI</a></li>
+		</ul>
+	</div>
+
+	<script>
+		const floatMenu = document.getElementById('floatMenu');
+		const mainFloatBtn = document.getElementById('mainFloatBtn');
+
+		// 點擊主按鈕時切換展開/收合
+		mainFloatBtn.addEventListener('click', function (e) {
+			e.stopPropagation();
+			floatMenu.classList.toggle('active');
+		});
+
+		// 點擊畫面其他地方時自動收合選單
+		document.addEventListener('click', function () {
+			floatMenu.classList.remove('active');
+		});
+	</script>
+</body>
+
+</html>

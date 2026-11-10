@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Design - KAORU ART</title>
+
+	<!-- 保留原有的主要樣式與自訂修正檔 -->
+	<link id="wsite-base-style" rel="stylesheet" type="text/css" href="weebly-base.css" />
+	<link rel="stylesheet" type="text/css" href="files/main_style.css?1789437945" title="wsite-theme-css" />
+	<link rel="stylesheet" href="custom-fixes.css" />
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Cookie&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
+		rel="stylesheet">
+
+	<!-- 圖片瀏覽效果 (GLightbox) -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+	<style>
+		/* 保留原有字型與主題設定 */
+		#wsite-content div.paragraph,
+		#wsite-content p {
+			font-family: "Montserrat", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+			font-weight: 400 !important;
+			color: #9b9b9b !important;
+		}
+
+		#wsite-content h2 {
+			font-family: "Montserrat", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+			text-transform: uppercase !important;
+			color: #333 !important;
+		}
+
+		#wsite-title {
+			font-family: "Montserrat", sans-serif !important;
+			text-transform: uppercase !important;
+		}
+
+		.wsite-headline,
+		.wsite-header-section .wsite-content-title {
+			font-family: "Montserrat", sans-serif !important;
+			font-weight: 700 !important;
+			letter-spacing: 5px !important;
+		}
+
+		@media screen and (min-width: 767px) {
+			#wsite-content h2 {
+				font-size: 24px !important;
+			}
+
+			#wsite-title {
+				font-size: 26px !important;
+			}
+		}
+
+		/* 關鍵修正：強制讓 Logo 區塊提高圖層，確保點擊絕對不會被遮擋 */
+		.nav-wrap {
+			position: relative;
+			z-index: 100;
+		}
+
+		#logo {
+			position: relative;
+			z-index: 101;
+		}
+
+		#logo a {
+			position: relative;
+			display: inline-block;
+			z-index: 102;
+			cursor: pointer;
+		}
+
+		/* 現代化 CSS Grid 響應式畫廊 */
+		.section-heading {
+			text-align: left;
+			margin: 56px 0 20px !important;
+			padding-bottom: 8px;
+			border-bottom: 1px solid #eaeaea;
+		}
+
+		.section-heading:first-of-type {
+			margin-top: 10px !important;
+		}
+
+		.kaoru-gallery {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 12px;
+			margin-bottom: 24px;
+		}
+
+		.kaoru-gallery.cols-5 {
+			grid-template-columns: repeat(5, 1fr);
+		}
+
+		.kaoru-gallery a {
+			display: block;
+			position: relative;
+			width: 100%;
+			aspect-ratio: 1 / 1;
+			overflow: hidden;
+			border: 1px solid #e0e0e0;
+			padding: 2px;
+			background: #fff;
+			box-sizing: border-box;
+		}
+
+		.kaoru-gallery img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+			transition: transform 0.3s ease;
+		}
+
+		.kaoru-gallery a:hover img {
+			transform: scale(1.05);
+		}
+
+		/* RWD 響應式斷點 */
+		@media screen and (max-width: 992px) {
+
+			.kaoru-gallery,
+			.kaoru-gallery.cols-5 {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
+
+		@media screen and (max-width: 600px) {
+
+			.kaoru-gallery,
+			.kaoru-gallery.cols-5 {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 8px;
+			}
+		}
+
+		
+	</style>
+</head>
+
+<body class="header-page wsite-theme-light wsite-page-design">
+	<div class="wrapper">
+		<div class="header-wrap">
+			<div class="nav-wrap">
+				<div id="logo">
+					<span class="wsite-logo">
+						<!-- 確保此處明確指向 index.html -->
+						<a href="index.html">
+							<span id="wsite-title">KAORU ART</span>
+						</a>
+					</span>
+				</div>
+				<a class="hamburger" aria-label="Menu" href="#"><span></span></a>
+				<div class="menu">
+					<div class="container">
+						<div class="search"></div>
+						<ul class="wsite-menu-default">
+							<li class="wsite-menu-item-wrap"><a href="index.html" class="wsite-menu-item">HOME</a></li>
+							<li id="active" class="wsite-menu-item-wrap"><a href="design.html"
+									class="wsite-menu-item">DESIGN</a></li>
+							<li class="wsite-menu-item-wrap"><a href="illustration.html"
+									class="wsite-menu-item">ILLUSTRATION</a></li>
+							<li class="wsite-menu-item-wrap"><a href="video_photo.html" class="wsite-menu-item">VIDEO /
+									PHOTO</a></li>
+							<li class="wsite-menu-item-wrap"><a href="web_ui.html" class="wsite-menu-item">WEB / UI</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="banner-wrap">
+				<div class="wsite-elements wsite-not-footer wsite-header-elements">
+					<div class="wsite-section-wrap">
+						<div class="wsite-section wsite-header-section wsite-section-bg-image"
+							style="height: auto; vertical-align: middle; background-image: url('https://cdn2.editmysite.com/images/editor/theme-background/stock/Skyscrapers.jpg'); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; background-color: transparent;">
+							<div class="wsite-section-content">
+								<div class="container">
+									<div class="banner">
+										<div class="wsite-section-elements">
+											<h2 class="wsite-content-title" style="text-align:center; font-size: 36px; letter-spacing: 5px;">DESIGN</h2>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.header-wrap-->
+
+		<div id="main-wrap">
+			<div id="wsite-content" class="wsite-elements wsite-not-footer">
+				<div class="wsite-section-wrap">
+					<div class="wsite-section wsite-body-section wsite-background-4 wsite-custom-background">
+						<div class="wsite-section-content">
+							<div class="container">
+								<div class="wsite-section-elements">
+
+									<!-- 1. DM / 海報 / 名片 -->
+									<h2 class="wsite-content-title section-heading">DM / 海報 / 名片</h2>
+									<div class="kaoru-gallery">
+										<a href="uploads/1/1/9/0/11905794/20210329cortex-002-ok_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20210329cortex-002-ok.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20210330cortex-001-ok_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20210330cortex-001-ok.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20210330cortex-004-ok_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20210330cortex-004-ok.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20180725-03-1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20180725-03-1.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20180725-03-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20180725-03-02.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20180725-03-03_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20180725-03-03.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20180725-03-04_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20180725-03-04.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20180725-03-05_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20180725-03-05.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20210319-ok_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20210319-ok.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20230823-ok-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20230823-ok-01.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20180822iscane-dm-1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20180822iscane-dm-1.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20180822iscane-dm-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20180822iscane-dm-02.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/201827vedis3-dm-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/201827vedis3-dm-01.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/201827vedis3online-dm-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/201827vedis3online-dm-01.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/201827vedis3online-dm-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/201827vedis3online-dm-02.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2020213iscan91-edm-1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2020213iscan91-edm-1.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2020213iscan91-edm-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2020213iscan91-edm-02.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2020213iscan91-edm-03_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2020213iscan91-edm-03.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2020213iscan91-edm-04_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2020213iscan91-edm-04.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2020213iscan91-edm-05_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2020213iscan91-edm-05.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2020213iscan91-edm-all-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2020213iscan91-edm-all-01.jpg"
+												alt="DM海報設計" loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20201229-dm-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20201229-dm-01.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20201229-dm-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20201229-dm-02.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20201229-dm-03_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20201229-dm-03.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20201229-dm-en-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20201229-dm-en-01.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20201229-dm-en-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20201229-dm-en-02.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20201229-dm-en-03_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20201229-dm-en-03.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20230221iscan4-dm-jp-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20230221iscan4-dm-jp-01.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20230221iscan4-dm-jp-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20230221iscan4-dm-jp-02.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20240104iscan4s-dm-jp-1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20240104iscan4s-dm-jp-1.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20240104iscan4s-dm-jp-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20240104iscan4s-dm-jp-02.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20240105ca15ii-dm-jp-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20240105ca15ii-dm-jp-01.jpg" alt="DM海報設計"
+												loading="lazy"></a>
+									</div>
+
+									<!-- 2. LOGO -->
+									<h2 class="wsite-content-title section-heading">LOGO</h2>
+									<div class="kaoru-gallery">
+										<a href="uploads/1/1/9/0/11905794/250813th-logo-320_orig.png"><img
+												src="uploads/1/1/9/0/11905794/250813th-logo-320.png" alt="LOGO設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/250828th-textlogo120_orig.png"><img
+												src="uploads/1/1/9/0/11905794/250828th-textlogo120.png" alt="LOGO設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/0003228440b_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/0003228440b.jpg" alt="LOGO設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20141016eiscan-logo-ok-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20141016eiscan-logo-ok-01.jpg"
+												alt="LOGO設計" loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20141016eiscan-logo-ok-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20141016eiscan-logo-ok-02.jpg"
+												alt="LOGO設計" loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20180124vedis3logo-ok-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20180124vedis3logo-ok-01.jpg" alt="LOGO設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20220309vedis4sp-logo-1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20220309vedis4sp-logo-1.jpg" alt="LOGO設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/boss-logo_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/boss-logo.jpg" alt="LOGO設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/pu-logo_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/pu-logo.jpg" alt="LOGO設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2896265-1-orig_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2896265-1-orig.jpg" alt="LOGO設計"
+												loading="lazy"></a>
+									</div>
+
+									<!-- 3. design Portfolio -->
+									<h2 class="wsite-content-title section-heading">design Portfolio</h2>
+									<div class="kaoru-gallery">
+										<a href="uploads/1/1/9/0/11905794/1024-002-6_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-002-6_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-002-4_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-002-4_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-002-14_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-002-14_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-002-2_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-002-2_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-002-3_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-002-3_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-002-5_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-002-5_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-002-7_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-002-7_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-002-8_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-002-8_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-002-9_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-002-9_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-002-10_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-002-10_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-002-15_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-002-15_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-003-1_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-003-1_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-003-3_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-003-3_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-003-4_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-003-4_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-003-6_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-003-6_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-003-7_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-003-7_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-003-9_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-003-9_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-002-1_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-002-1_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-003-10_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-003-10_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-003-11_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-003-11_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-003-12_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-003-12_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1024-003-13_1.jpg"><img
+												src="uploads/1/1/9/0/11905794/1024-003-13_1.jpg" alt="Design Portfolio"
+												loading="lazy"></a>
+									</div>
+
+									<!-- 4. 雜誌稿 -->
+									<h2 class="wsite-content-title section-heading">雜誌稿</h2>
+									<div class="kaoru-gallery">
+										<a href="uploads/1/1/9/0/11905794/20210610-110-7_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20210610-110-7.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20210720-110-8_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20210720-110-8.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20210806-110-9_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20210806-110-9.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20211115-110-12_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20211115-110-12.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20211118-110-11_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20211118-110-11.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20230407-112-5-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20230407-112-5-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20230717-112-8-ok-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20230717-112-8-ok-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20230725i4v4-ok-1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20230725i4v4-ok-1.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/104-1-oil_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/104-1-oil.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20230815-112-9_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20230815-112-9.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20230927-112-11-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20230927-112-11-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20240705-113-8-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20240705-113-8-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/202302179-112-3-ok-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/202302179-112-3-ok-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2020414-111-5-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2020414-111-5-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2020718-111-8-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2020718-111-8-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20140220-103-3_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20140220-103-3.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20141223-104-1-ok-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20141223-104-1-ok-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20160520-105-6_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20160520-105-6.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20170316-106-4-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20170316-106-4-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20170514-106-7-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20170514-106-7-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20180319-107-4_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20180319-107-4.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20190320-108-4-ok-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20190320-108-4-ok-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20190503-108-6-2-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20190503-108-6-2-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20191120-108-12-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20191120-108-12-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20191120-108-12-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20191120-108-12-02.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20200615-109-7-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20200615-109-7-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20200911-109-10-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20200911-109-10-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20201014-111-11_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20201014-111-11.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20201118-109-12-ok-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20201118-109-12-ok-01.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20210419-110-5-ok_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20210419-110-5-ok.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20130618-ok_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20130618-ok.jpg" alt="雜誌稿設計"
+												loading="lazy"></a>
+									</div>
+
+									<!-- 5. design -->
+									<h2 class="wsite-content-title section-heading">design</h2>
+									<div class="kaoru-gallery cols-5">
+										<a href="uploads/1/1/9/0/11905794/5931525_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5931525_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/6388084_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6388084_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8870740_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8870740_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4929615_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4929615_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9167362_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9167362_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5956843_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5956843_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5280930_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5280930_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20171103iscan3dm-kaoru-a3-01_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20171103iscan3dm-kaoru-a3-01_1.jpg"
+												alt="平面設計" loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20171103iscan3dm-kaoru-a3-02_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20171103iscan3dm-kaoru-a3-02_1.jpg"
+												alt="平面設計" loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20171103iscan3dm-kaoru-a3-03_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20171103iscan3dm-kaoru-a3-03_1.jpg"
+												alt="平面設計" loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20171103iscan3dm-kaoru-a3-04_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20171103iscan3dm-kaoru-a3-04_1.jpg"
+												alt="平面設計" loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20171106-a3-02_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20171106-a3-02_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20171106-a3-01_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20171106-a3-01_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20171106-a3-03_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20171106-a3-03_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20171106-a3-04_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20171106-a3-04_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20171103iscan3dm-global-a3-01_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20171103iscan3dm-global-a3-01_1.jpg"
+												alt="平面設計" loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20171103iscan3dm-global-a3-02_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20171103iscan3dm-global-a3-02_1.jpg"
+												alt="平面設計" loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20171103iscan3dm-global-a3-03_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20171103iscan3dm-global-a3-03_1.jpg"
+												alt="平面設計" loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/20171103iscan3dm-global-a3-04_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/20171103iscan3dm-global-a3-04_1.jpg"
+												alt="平面設計" loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4171519_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4171519_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5777208_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5777208_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2772212_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2772212_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1907044_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/1907044_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4756314_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4756314_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2511499_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2511499_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2484697_1_orig.png"><img
+												src="uploads/1/1/9/0/11905794/2484697_1.png" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7823875_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7823875_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/805434_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/805434_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/6884917_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6884917_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7178202_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7178202_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5546785_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5546785_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9048156_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9048156_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/6622495_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6622495_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8367996_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8367996_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9828989_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9828989_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9755908_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9755908_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7104663_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7104663_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/3198241_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/3198241_1.jpg" alt="平面設計"
+												loading="lazy"></a>
+									</div>
+
+									<!-- 6. 東東餐飲企業 -->
+									<h2 class="wsite-content-title section-heading">東東餐飲企業</h2>
+									<div class="kaoru-gallery">
+										<a href="uploads/1/1/9/0/11905794/5093996_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5093996_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1390863_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/1390863_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4364361_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4364361_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7783499_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7783499_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1308730_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/1308730_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4345002_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4345002_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/866055_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/866055_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/6797953_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6797953_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4297402_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4297402_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/7586564_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7586564_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/6553161_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6553161_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5927538_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5927538_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8741374_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8741374_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4214702_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4214702_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/5508734_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/5508734_1.jpg" alt="東東餐飲企業設計"
+												loading="lazy"></a>
+									</div>
+
+									<!-- 7. 展場規劃 -->
+									<h2 class="wsite-content-title section-heading">展場規劃</h2>
+									<div class="kaoru-gallery">
+										<a href="uploads/1/1/9/0/11905794/6059162-1-orig_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/6059162-1-orig.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/8295020-1-orig_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/8295020-1-orig.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2013tp-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2013tp-02.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2013tp-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2013tp-01.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1908135-1-orig_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/1908135-1-orig.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/3319087-1-orig_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/3319087-1-orig.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4681101-1-orig_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4681101-1-orig.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/37493-1-orig_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/37493-1-orig.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2013-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2013-01.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2013-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2013-02.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2018tp-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2018tp-01.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2018tp-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2018tp-02.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/201503_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/201503.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/201503-2_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/201503-2.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/202203-01_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/202203-01.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/202203-02_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/202203-02.jpg" alt="展場規劃設計"
+												loading="lazy"></a>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="sticky-footer-push"></div>
+	</div><!--/.wrapper-->
+
+	<!-- 手機版導覽列 -->
+	<div class="navmobile-wrapper">
+		<div id="navmobile" class="nav">
+			<ul class="wsite-menu-default">
+				<li class="wsite-menu-item-wrap"><a href="index.html" class="wsite-menu-item">HOME</a></li>
+				<li id="active" class="wsite-menu-item-wrap"><a href="design.html" class="wsite-menu-item">DESIGN</a>
+				</li>
+				<li class="wsite-menu-item-wrap"><a href="illustration.html" class="wsite-menu-item">ILLUSTRATION</a>
+				</li>
+				<li class="wsite-menu-item-wrap"><a href="video_photo.html" class="wsite-menu-item">VIDEO / PHOTO</a>
+				</li>
+				<li class="wsite-menu-item-wrap"><a href="web_ui.html" class="wsite-menu-item">WEB / UI</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 引入 GLightbox 核心檔案 -->
+	<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+	<!-- 啟用圖片燈箱與手機漢堡選單 -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var imageLinks = document.querySelectorAll('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]');
+			imageLinks.forEach(function (link) {
+				link.classList.add('glightbox');
+			});
+			const lightbox = GLightbox({
+				selector: '.glightbox',
+				touchNavigation: true,
+				loop: true
+			});
+
+			var menuBtn = document.querySelector('a[aria-label="Menu"]');
+			if (menuBtn) {
+				var menuWrapper = menuBtn.nextElementSibling;
+				if (menuWrapper) {
+					menuWrapper.classList.add('custom-mobile-menu');
+					menuBtn.addEventListener('click', function (event) {
+						event.preventDefault();
+						menuWrapper.classList.toggle('is-open');
+					});
+				}
+			}
+		});
+	</script>
+
+	<div class="custom-footer">
+		© 2026 KAORU ART. All Rights Reserved.
+	</div>
+
+	<!-- 浮動式快捷導航選單 -->
+	<div class="floating-menu-container" id="floatMenu">
+		<button id="mainFloatBtn" title="快速導航選單">☰</button>
+		<ul class="float-options">
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="design.html">DESIGN</a></li>
+			<li><a href="illustration.html">ILLUSTRATION</a></li>
+			<li><a href="video_photo.html">VIDEO / PHOTO</a></li>
+			<li><a href="web_ui.html">WEB / UI</a></li>
+		</ul>
+	</div>
+
+	<script>
+		const floatMenu = document.getElementById('floatMenu');
+		const mainFloatBtn = document.getElementById('mainFloatBtn');
+
+		// 點擊主按鈕時切換展開/收合
+		mainFloatBtn.addEventListener('click', function (e) {
+			e.stopPropagation();
+			floatMenu.classList.toggle('active');
+		});
+
+		// 點擊畫面其他地方時自動收合選單
+		document.addEventListener('click', function () {
+			floatMenu.classList.remove('active');
+		});
+	</script>
+</body>
+
+</html>

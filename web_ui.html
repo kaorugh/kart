@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>WEB / UI - KAORU ART</title>
+
+	<!-- 保留原有的主要樣式與自訂修正檔 -->
+	<link id="wsite-base-style" rel="stylesheet" type="text/css" href="weebly-base.css" />
+	<link rel="stylesheet" type="text/css" href="files/main_style.css?1789437945" title="wsite-theme-css" />
+	<link rel="stylesheet" href="custom-fixes.css" />
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Cookie&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap"
+		rel="stylesheet">
+
+	<!-- 圖片瀏覽效果 (GLightbox) -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+	<style>
+		/* 基本字型與標題設定 */
+		#wsite-content div.paragraph,
+		#wsite-content p {
+			font-family: "Montserrat", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+			font-weight: 400 !important;
+			color: #9b9b9b !important;
+		}
+
+		#wsite-content h2 {
+			font-family: "Montserrat", "PingFang TC", "Microsoft JhengHei", sans-serif !important;
+			text-transform: uppercase !important;
+			color: #333 !important;
+		}
+
+		#wsite-title {
+			font-family: "Montserrat", sans-serif !important;
+			text-transform: uppercase !important;
+		}
+
+		.wsite-headline,
+		.wsite-header-section .wsite-content-title {
+			font-family: "Montserrat", sans-serif !important;
+			font-weight: 700 !important;
+			letter-spacing: 5px !important;
+		}
+
+		@media screen and (min-width: 767px) {
+			#wsite-content h2 {
+				font-size: 24px !important;
+			}
+
+			#wsite-title {
+				font-size: 26px !important;
+			}
+		}
+
+		/* 關鍵修正：強制讓 Logo 區塊提高圖層，確保點擊絕對不會被遮擋 */
+		.nav-wrap {
+			position: relative;
+			z-index: 100;
+		}
+
+		#logo {
+			position: relative;
+			z-index: 101;
+		}
+
+		#logo a {
+			position: relative;
+			display: inline-block;
+			z-index: 102;
+			cursor: pointer;
+		}
+
+		.section-heading {
+			text-align: left;
+			margin: 56px 0 20px !important;
+			padding-bottom: 8px;
+			border-bottom: 1px solid #eaeaea;
+		}
+
+		.section-heading:first-of-type {
+			margin-top: 10px !important;
+		}
+
+		/* 現代化 CSS Grid 圖片畫廊樣式 */
+		.kaoru-gallery {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 12px;
+			margin-bottom: 24px;
+		}
+
+		.kaoru-gallery.cols-3 {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.kaoru-gallery.cols-2 {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.kaoru-gallery a {
+			display: block;
+			position: relative;
+			width: 100%;
+			aspect-ratio: 4 / 3;
+			overflow: hidden;
+			border: 1px solid #e0e0e0;
+			padding: 2px;
+			background: #fff;
+			box-sizing: border-box;
+		}
+
+		.kaoru-gallery img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+			transition: transform 0.3s ease;
+		}
+
+		.kaoru-gallery a:hover img {
+			transform: scale(1.05);
+		}
+
+		/* RWD 響應式斷點 */
+		@media screen and (max-width: 992px) {
+
+			.kaoru-gallery,
+			.kaoru-gallery.cols-3,
+			.kaoru-gallery.cols-2 {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 15px;
+			}
+		}
+
+		@media screen and (max-width: 600px) {
+
+			.kaoru-gallery,
+			.kaoru-gallery.cols-3,
+			.kaoru-gallery.cols-2 {
+				grid-template-columns: 1fr;
+				gap: 15px;
+			}
+		}
+	</style>
+</head>
+
+<body class="header-page wsite-theme-light wsite-page-website">
+	<div class="wrapper">
+		<div class="header-wrap">
+			<div class="nav-wrap">
+				<div id="logo">
+					<span class="wsite-logo">
+						<a href="index.html">
+							<span id="wsite-title">KAORU ART</span>
+						</a>
+					</span>
+				</div>
+				<a class="hamburger" aria-label="Menu" href="#"><span></span></a>
+				<div class="menu">
+					<div class="container">
+						<div class="search"></div>
+						<ul class="wsite-menu-default">
+							<li class="wsite-menu-item-wrap"><a href="index.html" class="wsite-menu-item">HOME</a></li>
+							<li class="wsite-menu-item-wrap"><a href="design.html" class="wsite-menu-item">DESIGN</a>
+							</li>
+							<li class="wsite-menu-item-wrap"><a href="illustration.html"
+									class="wsite-menu-item">ILLUSTRATION</a></li>
+							<li class="wsite-menu-item-wrap"><a href="video_photo.html" class="wsite-menu-item">VIDEO /
+									PHOTO</a></li>
+							<li id="active" class="wsite-menu-item-wrap"><a href="web_ui.html"
+									class="wsite-menu-item">WEB / UI</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="banner-wrap">
+				<div class="wsite-elements wsite-not-footer wsite-header-elements">
+					<div class="wsite-section-wrap">
+						<div class="wsite-section wsite-header-section wsite-section-bg-image"
+							style="height: auto; background-image: url('//cdn2.editmysite.com/images/editor/theme-background/stock/Work-Outside.jpg'); background-repeat: no-repeat; background-position: 50% 50%; background-size: cover; background-color: transparent;">
+							<div class="wsite-section-content">
+								<div class="container">
+									<div class="banner">
+										<div class="wsite-section-elements">
+											<h2 class="wsite-content-title" style="text-align:center; font-size: 36px; letter-spacing: 5px;">WEB / UI</h2>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/.header-wrap-->
+
+		<div id="main-wrap">
+			<div id="wsite-content" class="wsite-elements wsite-not-footer">
+				<div class="wsite-section-wrap">
+					<div class="wsite-section wsite-body-section wsite-background-10 wsite-custom-background">
+						<div class="wsite-section-content">
+							<div class="container">
+								<div class="wsite-section-elements">
+
+									<h2 class="wsite-content-title section-heading">RWD網頁</h2>
+									<div class="kaoru-gallery cols-2">
+										<a href="https://kaorurd.byethost24.com/th/index.php" target="_blank"><img
+												src="uploads/1/1/9/0/11905794/hp002_orig.jpg" alt="TOY HUNTER"
+												loading="lazy"></a>
+										<a href="https://kaorurd.byethost24.com/th/shop_drugstore.php"
+											target="_blank"><img src="uploads/1/1/9/0/11905794/hp003_orig.jpg"
+												alt="GO物網站" loading="lazy"></a>
+										<a href="https://kaorurd.byethost24.com/web03-work0703/index.html"
+											target="_blank"><img src="uploads/1/1/9/0/11905794/hp001_orig.jpg"
+												alt="GO SKATEBOARD" loading="lazy"></a>
+										<a href="https://kaorurd.byethost24.com/sc/" target="_blank"><img
+												src="uploads/1/1/9/0/11905794/hp004_orig.jpg" alt="砂時計鐘錶有限公司"
+												loading="lazy"></a>
+									</div>
+
+									<h2 class="wsite-content-title section-heading">WEBSITE</h2>
+									<div class="kaoru-gallery cols-3">
+										<a href="http://www.autolandscientech.com/v2015p/tw" target="_blank"><img
+												src="uploads/1/1/9/0/11905794/alpape-01_orig.jpg" alt="橋牧科技股份有限公司"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/hp003-1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/hp003-1.jpg" alt="WEBSITE作品"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/hp003-2_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/hp003-2.jpg" alt="WEBSITE作品"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/hp001-1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/hp001-1.jpg" alt="WEBSITE作品"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/hp001-2_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/hp001-2.jpg" alt="WEBSITE作品"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/hp004-1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/hp004-1.jpg" alt="WEBSITE作品"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/hp004-2_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/hp004-2.jpg" alt="WEBSITE作品"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2011dolweb-all_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2011dolweb-all.jpg" alt="WEBSITE作品"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2010dolweb_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2010dolweb.jpg" alt="WEBSITE作品"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2013ca116web_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2013ca116web.jpg" alt="WEBSITE作品"
+												loading="lazy"></a>
+									</div>
+
+									<h2 class="wsite-content-title section-heading">ICON</h2>
+									<div class="kaoru-gallery cols-3">
+										<a href="uploads/1/1/9/0/11905794/7323624_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/7323624_1.jpg" alt="ICON設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1405219_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/1405219_1.jpg" alt="ICON設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9007178_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/9007178_1.jpg" alt="ICON設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/610532_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/610532_1.jpg" alt="ICON設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2046605_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2046605_1.jpg" alt="ICON設計"
+												loading="lazy"></a>
+									</div>
+
+									<h2 class="wsite-content-title section-heading">UI</h2>
+									<div class="kaoru-gallery cols-3">
+										<a href="uploads/1/1/9/0/11905794/screenshot-all_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/screenshot-all.jpg" alt="UI設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2455560_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2455560_1.jpg" alt="UI設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/4250882_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/4250882_1.jpg" alt="UI設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/9737849_1_orig.png"><img
+												src="uploads/1/1/9/0/11905794/9737849_1.png" alt="UI設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/2341259_1_orig.jpg"><img
+												src="uploads/1/1/9/0/11905794/2341259_1.jpg" alt="UI設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1803794_1_orig.png"><img
+												src="uploads/1/1/9/0/11905794/1803794_1.png" alt="UI設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/1672478_1_orig.png"><img
+												src="uploads/1/1/9/0/11905794/1672478_1.png" alt="UI設計"
+												loading="lazy"></a>
+										<a href="uploads/1/1/9/0/11905794/201109pc-scanner-1_orig.png"><img
+												src="uploads/1/1/9/0/11905794/201109pc-scanner-1.png" alt="UI設計"
+												loading="lazy"></a>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="sticky-footer-push"></div>
+	</div><!--/.wrapper-->
+
+	<!-- 手機版導覽列 -->
+	<div class="navmobile-wrapper">
+		<div id="navmobile" class="nav">
+			<ul class="wsite-menu-default">
+				<li class="wsite-menu-item-wrap"><a href="index.html" class="wsite-menu-item">HOME</a></li>
+				<li class="wsite-menu-item-wrap"><a href="design.html" class="wsite-menu-item">DESIGN</a></li>
+				<li class="wsite-menu-item-wrap"><a href="illustration.html" class="wsite-menu-item">ILLUSTRATION</a>
+				</li>
+				<li class="wsite-menu-item-wrap"><a href="video_photo.html" class="wsite-menu-item">VIDEO / PHOTO</a>
+				</li>
+				<li id="active" class="wsite-menu-item-wrap"><a href="web_ui.html" class="wsite-menu-item">WEB / UI</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 引入 GLightbox 核心檔案 -->
+	<script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+
+	<!-- 啟用燈箱與手機選單 -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var imageLinks = document.querySelectorAll('a[href$=".jpg"], a[href$=".jpeg"], a[href$=".png"], a[href$=".gif"]');
+			imageLinks.forEach(function (link) {
+				link.classList.add('glightbox');
+			});
+			const lightbox = GLightbox({
+				selector: '.glightbox',
+				touchNavigation: true,
+				loop: true
+			});
+
+			var menuBtn = document.querySelector('a[aria-label="Menu"]');
+			if (menuBtn) {
+				var menuWrapper = menuBtn.nextElementSibling;
+				if (menuWrapper) {
+					menuWrapper.classList.add('custom-mobile-menu');
+					menuBtn.addEventListener('click', function (event) {
+						event.preventDefault();
+						menuWrapper.classList.toggle('is-open');
+					});
+				}
+			}
+		});
+	</script>
+
+	<div class="custom-footer">
+		© 2026 KAORU ART. All Rights Reserved.
+	</div>
+
+	<!-- 浮動式快捷導航選單 -->
+	<div class="floating-menu-container" id="floatMenu">
+		<button id="mainFloatBtn" title="快速導航選單">☰</button>
+		<ul class="float-options">
+			<li><a href="index.html">HOME</a></li>
+			<li><a href="design.html">DESIGN</a></li>
+			<li><a href="illustration.html">ILLUSTRATION</a></li>
+			<li><a href="video_photo.html">VIDEO / PHOTO</a></li>
+			<li><a href="web_ui.html">WEB / UI</a></li>
+		</ul>
+	</div>
+
+	<script>
+		const floatMenu = document.getElementById('floatMenu');
+		const mainFloatBtn = document.getElementById('mainFloatBtn');
+
+		// 點擊主按鈕時切換展開/收合
+		mainFloatBtn.addEventListener('click', function (e) {
+			e.stopPropagation();
+			floatMenu.classList.toggle('active');
+		});
+
+		// 點擊畫面其他地方時自動收合選單
+		document.addEventListener('click', function () {
+			floatMenu.classList.remove('active');
+		});
+	</script>
+</body>
+
+</html>
